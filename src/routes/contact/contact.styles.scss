@@ -1,0 +1,62 @@
+@mixin center-content {
+  display: grid;
+  place-items: center;
+}
+
+.contact {
+  flex: 1 0 100%;
+  padding: 3rem 2rem 4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  text-align: center;
+}
+
+.contact h3 {
+  margin-bottom: 0.5em;
+}
+
+.contact h3 ~ p {
+  opacity: 0.8;
+}
+
+.social-links-container {
+  width: 80%;
+  max-width: 900px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.social-item {
+  flex-basis: 15%;
+  border-radius: 25px;
+
+  @include center-content;
+
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.contact.dev {
+  background: rgba(134, 58, 168, 0.8); /* fallback for older browsers */
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8) 5%,
+    rgb(87, 87, 150) 100%
+  );
+  & .social-item-link {
+    display: block;
+  }
+}
+
+/* laptops */
+@media (min-width: 600px) {
+  .social-icon {
+    font-size: 1.5rem;
+  }
+}

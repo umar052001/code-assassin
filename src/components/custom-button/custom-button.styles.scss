@@ -1,0 +1,51 @@
+$dev-accent-color: rgb(171, 171, 241);
+$dev-accent-color2: rgba(0, 128, 249, 1);
+
+$transition-ease: 0.25s ease-in-out;
+$circle-border: 50%;
+
+.dev-button {
+  background: $dev-accent-color2;
+
+  cursor: pointer;
+  transition: $transition-ease;
+
+  /* For black circle effect */
+  position: relative;
+  z-index: 1;
+  /* If button contains a link */
+  & a {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
+
+  &:hover,
+  &:focus {
+    color: $dev-accent-color;
+
+    /* Border */
+    &::after {
+      border: 2px solid $dev-accent-color;
+      border-radius: inherit;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+  }
+
+  @media (min-width: 600px) {
+    overflow: hidden;
+  }
+
+  @media (max-width: 600px) {
+    &:hover,
+    &:focus {
+      background: black;
+    }
+  }
+}

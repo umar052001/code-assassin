@@ -1,0 +1,151 @@
+.menu {
+  position: fixed;
+  width: 4.4rem;
+  left: 50%;
+  top: 2.5%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.menu-icon {
+  font-size: 2rem;
+}
+
+.btn {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn::before {
+  content: attr(data-tooltip);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 50%;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+  transition: transform 150ms;
+}
+
+.btn.resume::before {
+  font-size: 0.75rem;
+}
+
+.btn:hover::before {
+  transform: scale(1);
+}
+
+.menuBtn,
+.closeBtn {
+  position: absolute;
+  transition: 0.3s linear;
+}
+
+.closeBtn {
+  transform: translateY(3rem);
+  opacity: 0;
+}
+
+.btn:not(:first-child) {
+  opacity: 0;
+  transition: 0.3s cubic-bezier(0.87, -0.41, 0.19, 1.44);
+  z-index: -2;
+}
+
+.btn:nth-child(2) {
+  left: 0;
+  transition-delay: 0s;
+}
+
+.btn:nth-child(3) {
+  left: 0;
+  top: 0;
+  transition-delay: 0.1s;
+}
+
+.btn:nth-child(4) {
+  top: 0;
+  transition-delay: 0.2s;
+}
+
+.btn:nth-child(5) {
+  left: 0;
+  top: 0;
+  transition-delay: 0.1s;
+}
+
+.btn:nth-child(6) {
+  left: 0;
+  transition-delay: 0s;
+}
+
+#menu-checkbox:checked ~ .toggle-menu .btn .menuBtn {
+  transform: translateY(-3rem);
+  opacity: 0;
+}
+
+#menu-checkbox:checked ~ .toggle-menu .btn .closeBtn {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#menu-checkbox:checked ~ .toggle-menu .btn:nth-child(2) {
+  left: -5rem;
+  opacity: 1;
+}
+
+#menu-checkbox:checked ~ .toggle-menu .btn:nth-child(3) {
+  left: -10rem;
+  opacity: 1;
+}
+
+#menu-checkbox:checked ~ .toggle-menu .btn:nth-child(4) {
+  left: 10rem;
+  opacity: 1;
+}
+
+#menu-checkbox:checked ~ .toggle-menu .btn:nth-child(5) {
+  left: 5rem;
+  opacity: 1;
+}
+
+#menu-checkbox:checked ~ .toggle-menu .btn:nth-child(6) {
+  left: 10rem;
+  opacity: 1;
+}
+
+.toggle-menu.dev .btn {
+  background: rgba(221, 221, 197, 0.8); /* fallback for older browsers */
+  background: linear-gradient(
+    0deg,
+    rgb(82, 41, 179) 5%,
+
+    rgb(0, 0, 0) 100%
+  );
+}
+
+.toggle-menu.dev .btn:hover {
+  background: #f0eff500;
+  color: rgb(21, 21, 24);
+  border: 1px solid rgba(224, 231, 231, 0.959);
+}
+
+.toggle-menu.dev .btn::before {
+  background: #000000a2;
+  color: rgb(171, 171, 241);
+}

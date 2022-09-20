@@ -1,0 +1,10 @@
+.intro {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.ninja-image {
+  width: 50%;
+  height: 100%;
+}
